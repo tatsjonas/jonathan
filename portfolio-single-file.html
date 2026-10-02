@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tatenda Jonathan — Senior Video Editor and Creative Producer portfolio." />
+  <title>Tatenda Jonathan — Creative Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #0b0b0c;
+  --panel: #121214;
+  --text: #f4f4f4;
+  --muted: #a4a4aa;
+  --line: #27272b;
+  --accent: #e32727;
+  --white: #ffffff;
+  --max: 1320px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, sans-serif; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+.section-pad { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; padding: 96px 0; }
+.site-header { position: sticky; top: 0; z-index: 30; height: 76px; display: flex; align-items: center; justify-content: space-between; width: min(var(--max), calc(100% - 48px)); margin: 0 auto; background: rgba(11,11,12,.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.05); }
+.brand, .footer-brand { display: flex; align-items: center; gap: 14px; }
+.brand-mark { width: 42px; height: 42px; border: 1px solid var(--text); display: grid; place-items: center; font-family: Manrope, sans-serif; font-weight: 800; letter-spacing: -.05em; }
+.brand-text { font-weight: 700; }
+.nav { display: flex; gap: 28px; font-size: 14px; }
+.nav a, .footer-links a { color: var(--muted); transition: color .25s; }
+.nav a:hover, .footer-links a:hover { color: var(--white); }
+.menu-toggle { display: none; background: none; border: 0; color: white; }
+.hero { padding-top: 72px; }
+.hero-kicker, .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .18em; font-size: 12px; font-weight: 700; }
+.hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 42px; align-items: stretch; margin-top: 28px; }
+h1,h2,h3 { font-family: Manrope, sans-serif; margin: 0; line-height: 1.03; letter-spacing: -.04em; }
+h1 { font-size: clamp(54px, 7.2vw, 118px); max-width: 1000px; }
+h1 span { color: #77777d; }
+h2 { font-size: clamp(38px, 4.5vw, 72px); max-width: 860px; }
+h3 { font-size: 24px; }
+.hero-copy { color: var(--muted); max-width: 760px; font-size: 18px; margin: 30px 0 0; }
+.hero-actions, .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.btn { min-height: 52px; padding: 0 22px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); cursor: pointer; transition: transform .25s, background .25s, border-color .25s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: white; }
+.btn-ghost { background: transparent; color: white; }
+.hero-card { border: 1px solid var(--line); min-height: 540px; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(180deg, #171719, #0f0f10); }
+.hero-card-top { padding: 24px; display: flex; flex-direction: column; gap: 6px; }
+.hero-card-top span { color: var(--muted); font-size: 11px; letter-spacing: .15em; }
+.hero-card-visual { flex: 1; display: grid; place-items: center; overflow: hidden; }
+.tj-monogram { font-family: Manrope, sans-serif; font-size: clamp(150px, 16vw, 290px); font-weight: 800; letter-spacing: -.12em; color: #020203; text-shadow: 0 0 1px #333; transform: translateX(-.05em); }
+.hero-card-bottom { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); }
+.hero-card-bottom span { padding: 14px 8px; text-align: center; font-size: 11px; color: var(--muted); border-right: 1px solid var(--line); }
+.hero-strip { margin-top: 54px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; display: flex; gap: 38px; overflow: hidden; white-space: nowrap; color: #6f6f75; font-size: 12px; letter-spacing: .12em; }
+.section-head { display: flex; justify-content: space-between; gap: 32px; align-items: flex-end; margin-bottom: 48px; }
+.section-head.align-end { align-items: flex-end; }
+.section-intro { color: var(--muted); max-width: 440px; margin: 0; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.filter { background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; cursor: pointer; }
+.filter.active, .filter:hover { color: white; border-color: #5b5b60; }
+.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.project-card { border: 1px solid var(--line); background: var(--panel); }
+.project-card--wide { grid-column: span 2; }
+.project-card[hidden] { display: none; }
+.project-art { aspect-ratio: 16/10; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 24px; }
+.project-card--wide .project-art { aspect-ratio: 16/7; }
+.project-art::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 70% 30%, transparent, rgba(0,0,0,.42)); }
+.project-art span { position: relative; z-index: 1; font-family: Manrope; font-size: 72px; font-weight: 800; color: rgba(255,255,255,.9); }
+.art-1 { background: linear-gradient(135deg,#261010,#8f1919 55%,#160606); }
+.art-2 { background: linear-gradient(135deg,#0d2231,#245e7d 55%,#09141c); }
+.art-3 { background: linear-gradient(135deg,#302010,#9b5f19 55%,#140c04); }
+.art-4 { background: linear-gradient(135deg,#1d102e,#6a2f95 55%,#0b0611); }
+.art-5 { background: linear-gradient(135deg,#101f17,#2d7b52 55%,#06110b); }
+.art-6 { background: linear-gradient(135deg,#2d1520,#9b3e64 55%,#14080d); }
+.project-meta { padding: 22px; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
+.project-type { margin: 0 0 6px; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; }
+.project-link { background: none; border: 0; color: white; cursor: pointer; white-space: nowrap; }
+.edit-note { color: #77777d; font-size: 12px; margin-top: 18px; }
+.services-section, .about-section { border-top: 1px solid var(--line); }
+.service-grid { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.service { padding: 30px; min-height: 245px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.service > span, .process-row > div > span { color: var(--accent); font-size: 12px; letter-spacing: .1em; }
+.service h3, .process-row h3 { margin: 42px 0 12px; }
+.service p, .process-row p, .about-copy p { color: var(--muted); margin-bottom: 0; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
+.about-copy { font-size: 18px; }
+.stats { margin-top: 38px; display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); }
+.stats div { padding: 22px 16px 0 0; }
+.stats strong { font-family: Manrope; display: block; font-size: 42px; }
+.stats span { color: var(--muted); font-size: 12px; }
+.process { border-top: 1px solid var(--line); }
+.process-row { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); }
+.process-row > div { padding: 28px 24px 0 0; min-height: 220px; border-right: 1px solid var(--line); margin-right: 24px; }
+.contact-section { padding-bottom: 42px; }
+.contact-card { background: var(--accent); padding: clamp(36px, 7vw, 92px); }
+.contact-card .eyebrow { color: #3a0505; }
+.contact-card h2 { color: white; max-width: 950px; }
+.contact-card p { max-width: 650px; color: rgba(255,255,255,.78); font-size: 18px; }
+.btn-light { background: white; color: #101010; border-color: white; }
+.btn-outline-light { border-color: rgba(255,255,255,.45); color: white; }
+.footer { display: grid; grid-template-columns: 1.2fr .8fr auto; align-items: center; gap: 24px; border-top: 1px solid var(--line); padding-top: 38px; padding-bottom: 38px; }
+.footer-brand div { display: flex; flex-direction: column; }
+.footer-brand span:last-child, .footer-small { color: var(--muted); font-size: 12px; }
+.footer-links { display: flex; gap: 18px; justify-content: center; font-size: 13px; }
+.modal { position: fixed; inset: 0; z-index: 60; display: none; }
+.modal.open { display: grid; place-items: center; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.82); backdrop-filter: blur(8px); }
+.modal-panel { position: relative; z-index: 2; width: min(1000px, calc(100% - 32px)); background: #050506; border: 1px solid var(--line); }
+.modal-close { position: absolute; top: 10px; right: 12px; z-index: 3; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); background: rgba(0,0,0,.6); color: white; font-size: 26px; cursor: pointer; }
+.video-placeholder { aspect-ratio: 16/9; display: grid; place-items: center; align-content: center; gap: 8px; background: radial-gradient(circle at 50% 50%, #251010, #09090a 70%); text-align: center; padding: 30px; }
+.video-placeholder span { color: var(--accent); font-size: 12px; letter-spacing: .18em; }
+.video-placeholder strong { font-size: clamp(18px,3vw,30px); }
+.video-frame-wrap iframe { width: 100%; aspect-ratio: 16/9; border: 0; display: block; }
+@media (max-width: 980px) {
+  .section-pad, .site-header { width: min(100% - 30px, var(--max)); }
+  .hero-grid, .about-grid { grid-template-columns: 1fr; }
+  .hero-card { min-height: 420px; }
+  .section-head { align-items: flex-start; flex-direction: column; }
+  .filters { justify-content: flex-start; }
+  .service-grid { grid-template-columns: repeat(2,1fr); }
+  .process-row { grid-template-columns: repeat(2,1fr); }
+  .footer { grid-template-columns: 1fr; text-align: left; }
+  .footer-links { justify-content: flex-start; }
+}
+@media (max-width: 720px) {
+  .section-pad { padding: 72px 0; }
+  .site-header { height: 68px; }
+  .brand-text { display: none; }
+  .menu-toggle { display: block; }
+  .nav { position: fixed; top: 68px; left: 15px; right: 15px; display: none; flex-direction: column; background: #111113; border: 1px solid var(--line); padding: 22px; gap: 18px; }
+  .nav.open { display: flex; }
+  .hero { padding-top: 48px; }
+  .hero-copy { font-size: 16px; }
+  .hero-card-bottom { grid-template-columns: repeat(2,1fr); }
+  .project-grid, .service-grid { grid-template-columns: 1fr; }
+  .project-card--wide { grid-column: span 1; }
+  .project-card--wide .project-art { aspect-ratio: 16/10; }
+  .project-meta { align-items: flex-start; flex-direction: column; }
+  .stats { grid-template-columns: 1fr; }
+  .process-row { grid-template-columns: 1fr; }
+  .process-row > div { border-right: 0; border-bottom: 1px solid var(--line); margin-right: 0; padding-bottom: 24px; }
+}
+
+</style>
+</head>
+<body>
+  <div class="cursor-glow"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Home">
+      <span class="brand-mark">TJ</span>
+      <span class="brand-text">Tatenda Jonathan</span>
+    </a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-pad">
+      <div class="hero-kicker">Senior Video Editor · Creative Producer</div>
+      <div class="hero-grid">
+        <div>
+          <h1>I shape footage into <span>stories people remember.</span></h1>
+          <p class="hero-copy">Commercials, corporate films, documentaries, podcasts, event stories and social-first video — crafted with strong pacing, polished sound, cinematic colour and purposeful storytelling.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">View selected work</a>
+            <button class="btn btn-ghost" data-open-showreel>Play showreel</button>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <span>AVAILABLE FOR</span>
+            <strong>Freelance · Retainers · Remote</strong>
+          </div>
+          <div class="hero-card-visual">
+            <div class="tj-monogram">TJ</div>
+          </div>
+          <div class="hero-card-bottom">
+            <span>Editing</span><span>Motion</span><span>Colour</span><span>Sound</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-strip" aria-hidden="true">
+        <span>PREMIERE PRO</span><span>AFTER EFFECTS</span><span>DAVINCI RESOLVE</span><span>PHOTOSHOP</span><span>ILLUSTRATOR</span><span>CAPCUT</span>
+      </div>
+    </section>
+
+    <section id="work" class="section-pad work-section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2>Work that sells the idea — not just the edit.</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Portfolio filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="commercial">Commercial</button>
+          <button class="filter" data-filter="corporate">Corporate</button>
+          <button class="filter" data-filter="social">Social</button>
+          <button class="filter" data-filter="events">Events</button>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card project-card--wide" data-category="commercial">
+          <div class="project-art art-1"><span>01</span></div>
+          <div class="project-meta">
+            <div><p class="project-type">Commercial / Brand Film</p><h3>Brand Campaign Film</h3></div>
+            <button class="project-link" data-video="YOUR_VIDEO_LINK_1">Watch project ↗</button>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="corporate">
+          <div class="project-art art-2"><span>02</span></div>
+          <div class="project-meta">
+            <div><p class="project-type">Corporate / Interview</p><h3>Executive Storytelling</h3></div>
+            <button class="project-link" data-video="YOUR_VIDEO_LINK_2">Watch project ↗</button>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="social">
+          <div class="project-art art-3"><span>03</span></div>
+          <div class="project-meta">
+            <div><p class="project-type">Social / Campaign</p><h3>Vertical Content Series</h3></div>
+            <button class="project-link" data-video="YOUR_VIDEO_LINK_3">Watch project ↗</button>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="events">
+          <div class="project-art art-4"><span>04</span></div>
+          <div class="project-meta">
+            <div><p class="project-type">Event / Highlights</p><h3>Event Highlight Film</h3></div>
+            <button class="project-link" data-video="YOUR_VIDEO_LINK_4">Watch project ↗</button>
+          </div>
+        </article>
+
+        <article class="project-card project-card--wide" data-category="commercial corporate">
+          <div class="project-art art-5"><span>05</span></div>
+          <div class="project-meta">
+            <div><p class="project-type">Product / Commercial</p><h3>Product Story</h3></div>
+            <button class="project-link" data-video="YOUR_VIDEO_LINK_5">Watch project ↗</button>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="social corporate">
+          <div class="project-art art-6"><span>06</span></div>
+          <div class="project-meta">
+            <div><p class="project-type">Podcast / Promo</p><h3>Podcast Visual Package</h3></div>
+            <button class="project-link" data-video="YOUR_VIDEO_LINK_6">Watch project ↗</button>
+          </div>
+        </article>
+      </div>
+
+      <p class="edit-note">Replace the six sample project titles and video links with your real work. Instructions are included in the README.</p>
+    </section>
+
+    <section id="services" class="section-pad services-section">
+      <div class="section-head align-end">
+        <div>
+          <p class="eyebrow">What I do</p>
+          <h2>Post-production built around the story.</h2>
+        </div>
+        <p class="section-intro">From raw footage to final master, I focus on clarity, rhythm, emotion and polish — while adapting each piece for the platform and audience it needs to reach.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service"><span>01</span><h3>Video Editing</h3><p>Commercials, brand films, interviews, documentaries, social campaigns and event highlights.</p></div>
+        <div class="service"><span>02</span><h3>Colour & Finishing</h3><p>Clean cinematic grading, shot matching, visual consistency and final delivery polish.</p></div>
+        <div class="service"><span>03</span><h3>Motion Graphics</h3><p>Titles, lower thirds, brand animation, explainers and supporting motion design.</p></div>
+        <div class="service"><span>04</span><h3>Audio Enhancement</h3><p>Dialogue cleanup, level balancing, music editing and stronger final mixes.</p></div>
+        <div class="service"><span>05</span><h3>Social Adaptations</h3><p>16:9, 9:16 and 1:1 cutdowns designed for each platform rather than simple crops.</p></div>
+        <div class="service"><span>06</span><h3>Creative Support</h3><p>Story structure, edit direction, visual references, pacing and content repurposing.</p></div>
+      </div>
+    </section>
+
+    <section id="about" class="section-pad about-section">
+      <div class="about-grid">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>Creative thinking. Technical control. Reliable delivery.</h2>
+        </div>
+        <div class="about-copy">
+          <p>I’m Tatenda Jonathan, a senior video editor and media production creative with more than a decade of hands-on experience shaping content for brands, businesses, events, podcasts and digital platforms.</p>
+          <p>My approach is simple: understand the message first, then use editing, sound, colour and motion to make it land. I’m comfortable working independently, collaborating with agencies and production teams, or supporting clients who need a dependable creative partner over time.</p>
+          <div class="stats">
+            <div><strong>10+</strong><span>Years in media production</span></div>
+            <div><strong>6</strong><span>Core production disciplines</span></div>
+            <div><strong>3</strong><span>Primary delivery formats</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process section-pad">
+      <div class="section-head">
+        <div><p class="eyebrow">Process</p><h2>Simple, collaborative, and built to keep projects moving.</h2></div>
+      </div>
+      <div class="process-row">
+        <div><span>01</span><h3>Brief</h3><p>Goals, audience, references, footage and delivery requirements.</p></div>
+        <div><span>02</span><h3>Story</h3><p>Structure, pacing, music direction and first creative assembly.</p></div>
+        <div><span>03</span><h3>Refine</h3><p>Feedback rounds, graphics, sound, colour and detailed polish.</p></div>
+        <div><span>04</span><h3>Deliver</h3><p>Final masters and platform-specific versions, organised and ready to publish.</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section section-pad">
+      <div class="contact-card">
+        <p class="eyebrow">Start a project</p>
+        <h2>Have footage, a campaign or an idea that needs a strong edit?</h2>
+        <p>Send me the brief, timeline and deliverables. I’ll help you shape the right approach.</p>
+        <div class="contact-actions">
+          <a class="btn btn-light" href="mailto:YOUR_EMAIL@example.com">Email me</a>
+          <a class="btn btn-outline-light" href="YOUR_WHATSAPP_LINK" target="_blank" rel="noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-pad">
+    <div class="footer-brand"><span class="brand-mark">TJ</span><div><strong>Tatenda Jonathan</strong><span>Senior Video Editor · Creative Producer</span></div></div>
+    <div class="footer-links"><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+    <div class="footer-small">© <span id="year"></span> Tatenda Jonathan. Portfolio.</div>
+  </footer>
+
+  <div class="modal" id="videoModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Video preview">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <div class="video-placeholder" id="videoPlaceholder">
+        <span>VIDEO PREVIEW</span>
+        <strong id="videoMessage">Add your YouTube or Vimeo link in script.js</strong>
+      </div>
+      <div class="video-frame-wrap" id="videoFrameWrap"></div>
+    </div>
+  </div>
+
+  <script>
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav');
+menuToggle?.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(open));
+});
+nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const filters = document.querySelectorAll('.filter');
+const cards = document.querySelectorAll('.project-card');
+filters.forEach(btn => btn.addEventListener('click', () => {
+  filters.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const filter = btn.dataset.filter;
+  cards.forEach(card => {
+    const categories = card.dataset.category.split(' ');
+    card.hidden = !(filter === 'all' || categories.includes(filter));
+  });
+}));
+
+const modal = document.getElementById('videoModal');
+const frameWrap = document.getElementById('videoFrameWrap');
+const placeholder = document.getElementById('videoPlaceholder');
+const videoMessage = document.getElementById('videoMessage');
+
+function toEmbed(url) {
+  if (!url || url.startsWith('YOUR_')) return null;
+  try {
+    const u = new URL(url);
+    if (u.hostname.includes('youtube.com')) {
+      const id = u.searchParams.get('v');
+      return id ? `https://www.youtube.com/embed/${id}?autoplay=1` : null;
+    }
+    if (u.hostname === 'youtu.be') {
+      const id = u.pathname.slice(1);
+      return id ? `https://www.youtube.com/embed/${id}?autoplay=1` : null;
+    }
+    if (u.hostname.includes('vimeo.com')) {
+      const id = u.pathname.split('/').filter(Boolean).pop();
+      return id ? `https://player.vimeo.com/video/${id}?autoplay=1` : null;
+    }
+  } catch(e) {}
+  return null;
+}
+
+function openVideo(url, label = 'Add your YouTube or Vimeo link in index.html') {
+  const embed = toEmbed(url);
+  frameWrap.innerHTML = '';
+  if (embed) {
+    placeholder.style.display = 'none';
+    frameWrap.innerHTML = `<iframe src="${embed}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+  } else {
+    placeholder.style.display = 'grid';
+    videoMessage.textContent = label;
+  }
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  frameWrap.innerHTML = '';
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('[data-video]').forEach(btn => btn.addEventListener('click', () => openVideo(btn.dataset.video)));
+document.querySelector('[data-open-showreel]')?.addEventListener('click', () => openVideo('YOUR_SHOWREEL_LINK', 'Add your main showreel link in script.js'));
+document.querySelectorAll('[data-close-modal]').forEach(el => el.addEventListener('click', closeModal));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+</script>
+</body>
+</html>
